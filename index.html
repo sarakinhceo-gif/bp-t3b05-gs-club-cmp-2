@@ -1,199 +1,293 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>비주류 문화 지식 저널 및 아카이브</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: #0d0d0f;
-      color: #ebebeb;
-      font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
-      line-height: 1.6;
-      padding: 32px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강서 클럽 비교 & 가성비 매칭 분석 - 로컬 형들의 진짜 놀이터 랭킹</title>
+    <meta name="description" content="강서구 및 발산, 마곡, 화곡 일대의 핫한 나이트, 클럽, 가라오케 2차 업소들의 시스템과 주대를 전격 비교 분석합니다. 리얼 내돈내산 가이드.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: hsl(230, 25%, 7%);
+            --bg-secondary: hsl(230, 18%, 11%);
+            --bg-tertiary: hsl(230, 18%, 15%);
+            --accent: hsl(250, 95%, 60%);
+            --accent-glow: hsla(250, 95%, 60%, 0.35);
+            --accent-pink: hsl(290, 95%, 55%);
+            --text-main: hsl(0, 0%, 93%);
+            --text-muted: hsl(230, 10%, 75%);
+            --border-color: hsl(230, 15%, 21%);
+            --glass-bg: rgba(14, 15, 22, 0.75);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+        }
+
+        header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent-glow);
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: var(--accent-glow);
+            filter: blur(120px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 30%, var(--accent-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .phone-banner {
+            background: linear-gradient(90deg, var(--bg-secondary), var(--bg-tertiary));
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .phone-banner:hover {
+            transform: translateY(-3px);
+        }
+
+        .phone-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .phone-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-main);
+        }
+
+        .content-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: var(--accent-pink);
+            font-weight: 600;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .review-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .review-card::before {
+            content: "“";
+            font-size: 4rem;
+            color: var(--accent-glow);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: serif;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reviewer {
+            font-weight: 600;
+            color: var(--accent-pink);
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-info {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "강서 클럽 비교 & 가성비 매칭 분석",
+      "description": "강서구 및 발산, 마곡, 화곡 일대의 핫한 나이트, 클럽, 가라오케 2차 업소들의 시스템과 주대를 전격 비교 분석합니다. 리얼 내돈내산 가이드.",
+      "url": "https://dydrkrtks7-cmd.github.io/bp-t3b05-gs-club-cmp-2/"
     }
-    .wrapper {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 60px;
-    }
-    .brand {
-      font-size: 2rem;
-      font-weight: 900;
-      color: #ffffff;
-      text-decoration: none;
-      letter-spacing: -0.05em;
-    }
-    nav { display: flex; gap: 24px; }
-    nav a {
-      color: #888888;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    nav a:hover { color: #f43f5e; }
-    main { margin-bottom: 80px; }
-    .label {
-      font-size: 0.75rem;
-      font-family: monospace;
-      color: #f43f5e;
-      font-weight: bold;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.04em;
-      color: #ffffff;
-      margin-bottom: 40px;
-    }
-    .article-body {
-      font-size: 1.15rem;
-      color: #cccccc;
-      font-weight: 400;
-      max-width: 780px;
-    }
-    .article-body p { margin-bottom: 24px; }
-    .juice-link {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 900;
-      box-shadow: inset 0 -6px 0 #f43f5e;
-      transition: all 0.15s ease-in-out;
-    }
-    .juice-link:hover {
-      box-shadow: inset 0 -24px 0 #f43f5e;
-      color: #ffffff;
-    }
-    .archive-section {
-      margin-top: 80px;
-    }
-    .section-title {
-      font-size: 1rem;
-      font-family: monospace;
-      color: #888888;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 32px;
-    }
-    .archive-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .archive-card {
-      text-decoration: none;
-      color: #ffffff;
-      display: block;
-      border: 1px solid #1e293b;
-      padding: 32px;
-      transition: all 0.2s ease;
-    }
-    .archive-card:hover {
-      border-color: #f43f5e;
-      background-color: #0f172a;
-    }
-    .archive-card h3 {
-      font-size: 1.4rem;
-      font-weight: 900;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    .archive-card p {
-      color: #888888;
-      font-size: 0.95rem;
-    }
-    footer {
-      border-top: 1px solid #1e293b;
-      padding-top: 32px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      font-family: monospace;
-      color: #475569;
-    }
-    footer a { color: #475569; text-decoration: none; }
-    footer a:hover { color: #f43f5e; }
-    @media(max-width: 768px) {
-      header { flex-direction: column; gap: 20px; align-items: flex-start; }
-      h1 { font-size: 2.2rem; }
-      .archive-card { padding: 20px; }
-      .archive-card h3 { font-size: 1.2rem; }
-    }
-  </style>
+    </script>
 </head>
 <body>
-  <div class="wrapper">
+
     <header>
-      <a href="/" class="brand">STREET.KR</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
+        <div class="logo">강서클럽비교</div>
+        <nav>
+            <a href="index.html">홈</a>
+            <a href="about.html">소개</a>
+            <a href="blog.html">리얼후기</a>
+        </nav>
     </header>
-    <main>
-      <div class="label">// BRUTALIST GRID SYSTEM</div>
-      <h1>비주류 문화 지식 저널 및 아카이브</h1>
-      <div class="article-body">
-        환영합니다. 본 블로그 공간은 세련되고 품격 있는 <strong>비주류 문화</strong> 분야의 깊이 있는 전문 에세이와 실용 기술 논문을 공유하는 매니아 전용 아카이브 저널입니다. 아래의 최근 기사 목록을 통해 새로운 지식의 지평을 넓혀 보시기 바랍니다.
-      </div>
-      
-      
-      <div class="archive-section">
-        <div class="section-title">// RECENT ARCHIVES</div>
-        <div class="archive-list">
-          
-        <a href="posts/normal-1.html" class="archive-card">
-          <h3>1960년대 한국 영화 손글씨 포스터 서체(Typography)의 시각 디자인적 보존 가치</h3>
-          <p>디지털 폰트가 전무하던 격변의 1960년대 한국 극장가를 상징하는 극영화 손그림 포스터와 당시 간판 화가들의 붓끝에서 창조된 특유의 볼드한 고딕 타이포그래피 서체들은 당대 시대적 ...</p>
-        </a>
-      
 
-        <a href="posts/normal-2.html" class="archive-card">
-          <h3>전통 악기 장인들의 보존 노하우: 해금 실크 현(Silk String)의 천연 비왁스 코팅 기법</h3>
-          <p>한국 전통 찰현악기인 해금의 뽕나무 현에 가해지는 마찰력을 극대화하고 온도 및 습도 편차에 따르는 실크 현의 수축 팽창을 방어하기 위해 벌꿀에서 추출한 밀랍 왁스와 천연 벌꿀을 엄...</p>
-        </a>
-      
-
-        <a href="posts/normal-3.html" class="archive-card">
-          <h3>활판 인쇄술의 숨겨진 보석: 19세기 납 활자(Lead Type) 캐스팅 자형 조각 기술</h3>
-          <p>활자를 한 자 한 자 구리 틀에 부어 굳히던 19세기 활판 금속 활자 조각술은 잉크가 젖은 종이 속으로 압착되어 들어갈 때 생기는 특유의 깊은 양각 엠보싱 텍스처와 미세하게 무너지...</p>
-        </a>
-      
-
-        <a href="posts/juice-1.html" class="archive-card">
-          <h3>아날로그 문화 컬렉터들이 선정한 PBN 빌더 트렌드 정보 공유 리포트</h3>
-          <p>시간의 깊은 숨결이 고스란히 각인된 명품 악기 해금 현의 장인정신과 잊힌 60년대 활판 서체의 고독한 인쇄 미학을 추적하며 아날로그 감성을 축적해 나가는 컬렉터분들이라면, 소중한 ...</p>
-        </a>
-      
-
-        <a href="posts/juice-2.html" class="archive-card">
-          <h3>아날로그 문화 컬렉터들이 선정한 PBN 빌더 트렌드 정보 공유 리포트</h3>
-          <p>시간의 깊은 숨결이 고스란히 각인된 명품 악기 해금 현의 장인정신과 잊힌 60년대 활판 서체의 고독한 인쇄 미학을 추적하며 아날로그 감성을 축적해 나가는 컬렉터분들이라면, 소중한 ...</p>
-        </a>
-      
+    <section class="hero">
+        <h1>강서 클럽 비교 & 리얼 랭킹 가이드<br><span style="color: var(--accent-pink);">내돈내산 형들이 까발리는 등급별 차이</span></h1>
+        <p>강서구 발산, 마곡, 화곡동 일대에서 불타는 금요일 밤을 장식할 최고의 놀이터를 찾고 계신가요? 뜬구름 잡는 광고 대신 주대, 마인드, 연령대를 칼같이 분석해 드립니다.</p>
+        
+        <div class="phone-banner">
+            <div class="phone-title">로컬 최고 가성비 룸 매칭 예약</div>
+            <a href="tel:010-6279-0862" class="phone-number">010-6279-0862</a>
         </div>
-      </div>
-    </main>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">강서구 대표 야간 상권 리얼 비교</h2>
+        <div class="content-card">
+            <p>강서구는 김포공항 승무원, 마곡 R&D 직장인, 화곡동 오랜 원주민들이 결합되어 대단히 역동적이고 개성 강한 야간 상권을 이루고 있습니다. 강남이나 홍대처럼 세련된 감성 클럽부터 중장년층을 타겟으로 한 대형 나이트, 화끈하고 재미있는 2차 셔츠룸 가라오케까지 선택의 폭이 엄청나게 넓죠. 그만큼 제대로 된 비교 정보 없이는 엄한 곳에 들어가 돈과 시간만 날리고 불쾌하게 나오기 십상입니다. 저희 <span class="highlight">강서 클럽 비교</span> 가이드는 이를 타파하고자 제작되었습니다.</p>
+            <p>저희가 모아둔 데이터에 따르면, 발산과 마곡은 세련되고 매너 좋은 비즈니스 중심의 룸과 라운지가 대세인 반면, 화곡동은 오랜 전통의 끈적하고 화끈한 가라오케와 가성비 룸들이 강세를 보입니다. 각 구역별 단가 거품을 완전히 제거하고 순수 내돈내산으로 픽업한 특급 루트만을 브로들에게 바칩니다.</p>
+        </div>
+
+        <h2 class="section-title">실패 없는 클럽 & 2차 룸 선택 기준</h2>
+        <div class="content-card">
+            <p>첫째, **연령대 및 연관 목적 매칭**. 오늘 방문의 메인 목적이 댄스와 비즈니스 접대, 혹은 화끈한 2차 중 어느 쪽에 집중되어 있는지에 따라 타겟 업소를 철저히 나눠야 합니다. 둘째, **투명 주대 체크**. 양주 단품 세트에 쓸데없는 음료와 서비스 안주를 덤터기 씌우는지 예약 전 반드시 점검하십시오. 저희 추천 실장 리스트를 통하면 1원 장난질 없는 정직한 강서 정찰제 단가 매칭을 즉각 보장받습니다.</p>
+            <p>강서구 밤거리의 마스터가 되어 신나는 힐링의 끝을 경험하고 싶으시다면 언제든 편하게 전화를 주시기 바랍니다. 당일 강서 전역의 업소 수질과 에이스 대기 현황을 투명하게 알려드리고 최선의 가성비 자리를 매칭해 드리겠습니다.</p>
+        </div>
+
+        <h2 class="section-title">강서 로컬 형들의 진짜 한마디</h2>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="review-text">"마곡지구에서 매일 똑같은 이자카야만 가다 형들 추천받고 2차 셔츠룸 다녀왔는데, 와... 진짜 동료들도 대만족했고 비용도 엄청 합리적이라 놀랐습니다."</div>
+                <div class="reviewer">- 마곡 연구원 강브로 (30세)</div>
+            </div>
+            <div class="review-card">
+                <div class="review-text">"화곡동 근처 나이트 가려다 가이드 글 보고 가라오케 정찰제로 꺾었는데 대성공이네요. 내상 걱정 없이 편하게 실장이랑 조율하고 놀 수 있어서 좋았습니다."</div>
+                <div class="reviewer">- 화곡 토박이 조브로 (34세)</div>
+            </div>
+        </div>
+    </div>
+
     <footer>
-      <div>&copy; 2026 STREET.KR. ALL RIGHTS RESERVED.</div>
-      <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
-      </div>
+        <div class="footer-logo">강서클럽비교</div>
+        <p class="footer-info">투명 정찰제 매칭 및 가이드 | 연락처: 010-6279-0862<br>© 2026 강서클럽비교. All rights reserved.</p>
     </footer>
-  </div>
+
 </body>
 </html>
